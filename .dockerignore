@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+backend/.env
+backend/datos/*.sqlite
+backend/datos/*.sqlite-*
+backend/datos/local.json
+backend/datos/respaldos
+backend/datos/migracion
+.claude
+*.zip

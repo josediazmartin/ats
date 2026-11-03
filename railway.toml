@@ -1,0 +1,15 @@
+# Railway (https://railway.com): construye con el Dockerfile y vigila /api/ats/salud.
+# Antes de desplegar, en el servicio de Railway:
+#   - Volume montado en /app/backend/datos (ahí viven ats2.sqlite y los respaldos).
+#   - Variables: RAILWAY_RUN_UID=0 (la imagen corre como usuario "node" y el volumen se monta como root),
+#     IDENTIDAD=dev + CLAVE_ACCESO=<clave larga> + GESTION_EMAILS=<correo> para la prueba; jwt o proxy en producción.
+#   - Railway inyecta PORT; el backend lo usa solo.
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/api/ats/salud"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

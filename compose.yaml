@@ -1,0 +1,45 @@
+# ATS 2.0 web en Docker: `docker compose up -d --build`
+# - La app queda en http://<servidor>:3001 (ATS 2.0 en /, gestión en /gestion, API en /api/ats).
+# - La base SQLite y sus respaldos viven en el volumen "ats2-datos" (no se pierden al recrear el contenedor).
+# - La configuración sale de backend/.env (copiar backend/.env.example; en producción IDENTIDAD=jwt o proxy).
+# - Cámara y NFC necesitan HTTPS: poner delante un proxy con certificado (Caddy, Nginx o el de IT). Ejemplo Caddy abajo.
+services:
+  ats2:
+    build: .
+    image: vicuna/ats2-web:2
+    container_name: ats2
+    restart: unless-stopped
+    env_file:
+      - backend/.env
+    environment:
+      ALMACEN: sqlite
+      SQLITE_ARCHIVO: datos/ats2.sqlite
+      SERVIR_FRONTEND: ../frontend/dist
+    ports:
+      - "3001:3001"
+    volumes:
+      - ats2-datos:/app/backend/datos
+
+  # Opcional: HTTPS automático con Caddy (DNS público apuntando al servidor). Activar con: docker compose --profile https up -d
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["https"]
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    command: caddy reverse-proxy --from ${ATS2_DOMINIO:-ats2.vicuna.com} --to ats2:3001
+    volumes:
+      - caddy-datos:/data
+    depends_on:
+      - ats2
+
+volumes:
+  ats2-datos:
+  caddy-datos:
+
+# Operación:
+#   respaldo manual:        docker compose exec ats2 npm run respaldo
+#   copiar la base afuera:  docker cp ats2:/app/backend/datos/ats2.sqlite ./ats2-copia.sqlite
+#   migrar desde SharePoint: docker cp ./migracion ats2:/tmp/migracion && docker compose exec ats2 npm run migrar -- /tmp/migracion
+#   datos demo (solo prueba): docker compose exec ats2 npm run semilla:demo

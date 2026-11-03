@@ -1,0 +1,17 @@
+{
+  "_nota": "Datos FICTICIOS para el almacén local (ALMACEN=local). Mismas columnas que ATS2 Tareas Rutinarias y ATS2 Personas de ATSHSS.",
+  "tareas": [
+    { "Title": "TR-DEMO-01", "Tarea": "Movimiento de suelo con excavadora", "Procedimiento": "PRO-DEMO-010", "Area": "Construcción", "Frente": "Plataforma demo", "Empresa": "Contratista Demo S.A.", "RiesgoFatal": "Interacción persona – equipos móviles", "CCV": "CCV EQUIPOS MÓVILES", "Activa": "SI", "PersonalCapacitado": ";20111222;20333444;20555666;" },
+    { "Title": "TR-DEMO-02", "Tarea": "Limpieza de oficinas del campamento", "Procedimiento": "PRO-DEMO-020", "Area": "Servicios", "Frente": "Campamento demo", "Empresa": "Servicios Demo SRL", "RiesgoFatal": "NO", "CCV": "", "Activa": "SI", "PersonalCapacitado": ";20777888;20999000;" },
+    { "Title": "TR-DEMO-03", "Tarea": "Tarea dada de baja", "Procedimiento": "", "Area": "", "Frente": "", "Empresa": "", "RiesgoFatal": "", "CCV": "", "Activa": "NO", "PersonalCapacitado": "" }
+  ],
+  "personas": [
+    { "Title": "20111222", "Nombre": "Pérez, Juan (demo)", "Cargo": "Operador", "Empresa": "Contratista Demo S.A.", "Equipo": "Cuadrilla A", "Activo": "SI", "Credencial": "9-99-P0000000001" },
+    { "Title": "20333444", "Nombre": "Gómez, Ana (demo)", "Cargo": "Rigger", "Empresa": "Contratista Demo S.A.", "Equipo": "Cuadrilla A", "Activo": "SI", "Credencial": "9-99-P0000000002" },
+    { "Title": "20555666", "Nombre": "Ruiz, Carlos (demo)", "Cargo": "Supervisor", "Empresa": "Contratista Demo S.A.", "Equipo": "Cuadrilla A", "Activo": "SI", "Credencial": "9-99-P0000000003" },
+    { "Title": "20777888", "Nombre": "Sosa, Marta (demo)", "Cargo": "Auxiliar", "Empresa": "Servicios Demo SRL", "Equipo": "Limpieza", "Activo": "SI", "Credencial": "" },
+    { "Title": "20999000", "Nombre": "Luna, Pedro (demo)", "Cargo": "Auxiliar", "Empresa": "Servicios Demo SRL", "Equipo": "Limpieza", "Activo": "SI", "Credencial": "9-99-P0000000005" },
+    { "Title": "12345678", "Nombre": "Díaz, Laura (demo)", "Cargo": "Soldadora", "Empresa": "Contratista Demo S.A.", "Equipo": "Cuadrilla B", "Activo": "SI", "Credencial": "9-99-P0000000006" },
+    { "Title": "11222333", "Nombre": "Baja, Persona (demo)", "Cargo": "", "Empresa": "", "Equipo": "", "Activo": "NO", "Credencial": "" }
+  ]
+}

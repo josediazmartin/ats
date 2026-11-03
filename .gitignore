@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+backend/datos/local.json
+backend/certificado/
+
+# base SQLite, respaldos y exportaciones de SharePoint (datos reales)
+backend/datos/*.sqlite
+backend/datos/*.sqlite-*
+backend/datos/respaldos/
+backend/datos/migracion/
